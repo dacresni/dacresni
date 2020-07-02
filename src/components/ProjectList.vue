@@ -1,12 +1,9 @@
-
-<template>
 <section>
-  <h3> Projects</h3>
+  <h1>Projects</h1>
   <dl id='project-list'>
-    <entry v-for="repo  in list" :key=repo.name > 
-        <dt :key='name'  > {{name}} </dt>
-        <dd :key='description'> {{description}} </dd>
-    </entry>
+    <template v-for="repo in repos">
+      <dt> {{repo.name}} </dt>
+      <dd> {{repo.description}} </dd>
+    </template>
   </dl>
 </section>
-</template>
