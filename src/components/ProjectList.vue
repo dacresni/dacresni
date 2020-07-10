@@ -1,9 +1,9 @@
 <section>
   <h1>Projects</h1>
-  <dl id='project-list'>
-    <template v-for="repo in repos">
-      <dt> {{repo.name}} </dt>
-      <dd> {{repo.description}} </dd>
-    </template>
-  </dl>
+  <ol id='project-list'>
+    <li v-for "repo in repos">
+      <p class='name' > {{repo.name}} </p>
+      <p class='description'> {{repo.description}} </p>
+    </li>
+  </ol>
 </section>
