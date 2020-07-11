@@ -1,12 +1,11 @@
 <template>
   <article  class="home">
-    <h2> Projects </h2>
-    <ol id='project-list'>
+    <h2>Projects</h2>
+    <ul id='project-list'>
       <li v-for="repo in repos" :key="repo.id">
-        <p class='name' > {{repo.name}} </p>
-        <p class='description'> {{repo.description}} </p>
+        <h3 class='name' ><a v-bind:href="repo.url">{{repo.name}} </a></h3> <p class='description'> {{repo.description}} </p>
       </li>
-    </ol>
+    </ul>
   </article>
 </template>
 
@@ -14,17 +13,22 @@
 export default {
   data() {
     return {
-          repos: []
+      repos: [
+        {name: "Loading Titles", description: "Loading descriptions", url: "https://github.com/dacresni/dacresni" },
+      ]
     }
   },
   created() {
-     this.fetchData()
+      this.fetchData()
   },
   watch: {
       '$route': 'fetchData'
   },
   methods: {
          fetchData() {
+           fetch("https://api.github.com/users/dacresni/repos")
+             .then(response => response.json())
+             .then(data =>this.repos = data )
          }
   }
 } 
