@@ -1,12 +1,13 @@
 <template>
-  <article  class="home">
-    <h2>Projects</h2>
+  <article id="home" class='row'>
     <ul id='project-list'>
+    <h2>Projects</h2>
       <li v-for="repo in repos" :key="repo.id">
         <h3 class='name' ><a v-bind:href="repo.url">{{repo.name}} </a></h3> <p class='description'> {{repo.description}} </p>
       </li>
     </ul>
     <ul id='subscriptions-list'>
+    <h2>Watching</h2>
       <li v-for="sub in subs" :key="sub.id">
         <h3 class='name' ><a v-bind:href="sub.url">{{sub.name}} </a></h3> <p class='description'> {{sub.description}} </p>
       </li>
