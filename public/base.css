@@ -12,15 +12,16 @@ body {
 html, body {
     width: 100%;
     height: 100%;
-    /* dont set overflow:hidden; disables scroll bar */
+    margin:0;
+    padding:0;
 }
 
 header {
-	border-style:solid;
-	border-color:#00F94B;
-	border-width: thin;
-	border-radius:5px;
-	padding:10px;
+    border-style:solid;
+    border-color:#00F94B;
+    border-width: thin;
+    border-radius:5px;
+    padding:10px;
 }
 nav  {
     display: flex;
@@ -33,11 +34,8 @@ nav  {
     /*padding:10px; */
 }
 
-
-
-
- nav a:hover {
-	color: #00F94B;
+nav a:hover {
+  color: #00F94B;
 }
 a {
 	color:cyan;
@@ -75,7 +73,7 @@ h2 {
 }
 
 .vertical {
-  writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
 }
 
 #borderContainer {
