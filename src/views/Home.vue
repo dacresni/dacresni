@@ -3,13 +3,13 @@
     <ul id='project-list' style='text-align:right;' >
     <h2>Projects</h2>
       <li v-for="repo in repos" :key="repo.id">
-        <h3 class='name' ><a v-bind:href="repo.url">{{repo.name}} </a></h3> <p class='description'> {{repo.description}} </p>
+        <h3 class='name' ><a v-bind:href="repo.html_url">{{repo.name}} </a></h3> <p class='description'> {{repo.description}} </p>
       </li>
     </ul>
     <ul id='subscriptions-list' style='text-align:left;' >
     <h2>Watching</h2>
       <li v-for="sub in subs" :key="sub.id">
-        <h3 class='name' ><a v-bind:href="sub.url">{{sub.name}} </a></h3> <p class='description'> {{sub.description}} </p>
+        <h3 class='name' ><a v-bind:href="sub.html_url">{{sub.name}} </a></h3> <p class='description'> {{sub.description}} </p>
       </li>
     </ul>
   </article>
@@ -20,10 +20,10 @@ export default {
   data() {
     return { 
       repos: [
-        { name: "Loading Titles", description: "Loading descriptions", url: "https://github.com/dacresni/dacresni" },
+        { name: "Loading Titles", description: "Loading descriptions", html_url: "https://github.com/dacresni/dacresni" },
       ],
       subs: [
-        { name: "Loading Titles", description: "Loading descriptions", url: "https://github.com/dacresni/dacresni" },
+        { name: "Loading Titles", description: "Loading descriptions", html_url: "https://github.com/dacresni/dacresni" },
       ]
     }
   },
