@@ -1,13 +1,9 @@
 <template>
-  <article id="Picts" class='row'>
-    <ul id='photo-list' style='text-align:right;' >
-    <h2>Photo Data</h2>
+  <article id="Picts" >
+    <ul id='photo-list'  >
+    <h2>{{photoset_metadata.title}}</h2>
       <li v-for="photo in photoset_metadata.photo" :key="photo.id">
-        <p class='placeholder'> {{photo.id}} </p>
-        <p class='placeholder'> {{photo.secret}} </p>
-        <p class='placeholder'> {{photo.server}} </p>
-        <p class='placeholder'> {{photo.farm}} </p>
-        <p class='placeholder'> {{photo.title}} </p>
+        <img :src= "photo.url_m" :alt="photo.title"> <h3>Title: {{photo.title}} </h3>
       </li>
     </ul>
   </article>
@@ -28,11 +24,12 @@ export default {
   },
   methods: {
       fetchPicts(){
-        fetch("https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=fc565292eb5726468f699db7943d3f08&photoset_id=72157716667933323&user_id=11745666%40N00&format=json&nojsoncallback=1") 
+        fetch("https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=fc565292eb5726468f699db7943d3f08&photoset_id=72157716667933323&user_id=11745666%40N00&extras=url_m&format=json&nojsoncallback=1") 
         .then(response => response.json())
           .then(data => this.photoset_metadata= data.photoset )
           .then(data => this.picts = data.photoset.photo )
          },
     }
 }
+// https://live.staticflickr.com/{server-id}/{id}_{secret}_{size-suffix}.jpg
 </script>
