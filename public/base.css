@@ -75,10 +75,6 @@ ul {
     list-style:none;
 }
 
-.vertical {
-    writing-mode: vertical-lr;
-}
-
 .row {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
@@ -92,3 +88,29 @@ ul {
     grid-column: 2;
 }
 
+.tooltip {
+    position:relative;
+}
+
+.tooltip:before {
+  font-family: sans-serif; 
+  content: attr(data-text); /* here's the magic */
+  position:absolute;
+
+  /* move to right */
+  bottom:100%;
+  margin-bottom:15px; /* and add a small left margin */
+
+  /* basic styles */
+  width:200px;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+
+  display:none; /* hide by default */
+}
+
+
+.tooltip:hover:before {
+  display:block;
+}

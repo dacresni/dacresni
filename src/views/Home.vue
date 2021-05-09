@@ -1,13 +1,13 @@
 <template>
   <article id="home" class='row'>
     <ul id='project-list' style='text-align:right;' >
-    <h2>Projects</h2>
+    <h2 class='tooltip' data-text='projects' >Projects</h2>
       <li v-for="repo in repos" :key="repo.id">
         <h3 class='name' ><a v-bind:href="repo.html_url">{{repo.name}} </a></h3> <p class='description'> {{repo.description}} </p>
       </li>
     </ul>
     <ul id='subscriptions-list' style='text-align:left;' >
-    <h2>Watching</h2>
+    <h2 class='tooltip' data-text='watching' >Watching</h2>
       <li v-for="sub in subs" :key="sub.id">
         <h3 class='name' ><a v-bind:href="sub.html_url">{{sub.name}} </a></h3> <p class='description'> {{sub.description}} </p>
       </li>
