@@ -3,8 +3,7 @@
     <ul id='post-list'  >
     <h2>{{blog.name}}</h2>
       <li v-for="post in posts" :key="post.id">
-        <h3>Title: {{post.title}} </h3>
-        <p>
+        <h3>Post:<a v-bind:href="post.url" > {{post.title}} </a></h3>
       </li>
     </ul>
   </article>
@@ -18,21 +17,23 @@ export default {
     }
   },
   created() {
-      this.fetchPicts()
+      this.fetchBlog()
+      this.fetchTitles()
   },
   watch: {
       '$route': 'fetchData'
   },
   methods: {
-      fetchPosts(){
+      fetchTitles(){
         fetch("https://www.googleapis.com/blogger/v3/blogs/6205685541397557767/posts?key=AIzaSyArcKKnRP2Eb-I9laF1uTjhS3qa8xvVtXk") 
         .then(response => response.json())
-          .then(data => this.posts= data.items)
+          .then(data => this.posts = data.items)
+            .then(data => this.nextToken = data.nextPageToken)
       },
       fetchBlog(){
         fetch("https://www.googleapis.com/blogger/v3/blogs/6205685541397557767/?key=AIzaSyArcKKnRP2Eb-I9laF1uTjhS3qa8xvVtXk") 
         .then(response => response.json())
-          .then(data => this.blog= data)
+          .then(data => this.blog = data)
          }
     }
 }
